@@ -1,0 +1,39 @@
+﻿@model CognitionTesterWeb.Models.TextClassificationModel
+
+@{
+    ViewBag.Title = "新增一篇文章";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    @using (Html.BeginForm("AddNew", "TextClassification",
+      FormMethod.Post, new { @class = "form-horizontal col-md-10", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>稿件自动分类 - 新增一篇文章</h4>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.Title, new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", style = "max-width:640px" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.Label("", "*", new { style = "color:red" })
+                @Html.LabelFor(m => m.Content, new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.Content, new { @class = "form-control", style = "max-width:640px;width:640px;height:240px" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="新增一篇文章" />
+            </div>
+        </div>
+    }
+</div>
+

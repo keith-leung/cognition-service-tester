@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <h2>认知服务存储结果环境：</h2>
+    <h3>@ViewData["Environment"]</h3>
+</div>
+
+<div class="row">
+    @(Html.Kendo().PanelBar()
+    .Name("IntroPanelBar")
+    .Items(items =>
+    {
+        items.Add()
+            .Text("稿件自动归类")
+            .Selected(true)
+            .Expanded(true)
+            .Content(@<text>
+            <p style="padding:1em 2em">
+                连接环境：<span style="font-weight: bold">@ViewData["Environment_TextClassification"]</span>
+            </p>
+            </text>);
+        items.Add()
+            .Text("提取关键词（文章打标签）")
+            .Content(@<text>
+            <p style="padding:1em 2em">
+                连接环境：<span style="font-weight: bold">@ViewData["Environment_TextKeyword"]</span>
+            </p>
+            </text>);
+        items.Add()
+            .Text("文本提取摘要")
+            .Content(@<text>
+            <p style="padding:1em 2em">
+                连接环境：<span style="font-weight: bold">@ViewData["Environment_TextAbstract"]</span>
+            </p>
+            </text>);
+        items.Add()
+            .Text("OCR（图片文字识别")
+            .Content(@<text>
+            <p style="padding:1em 2em">
+                连接环境：<span style="font-weight: bold">@ViewData["Environment_OCR"]</span>
+            </p>
+            </text>);
+        items.Add()
+            .Text("图片内容识别")
+            .Content(@<text>
+            <p style="padding:1em 2em">
+                连接环境：<span style="font-weight: bold">@ViewData["Environment_ImageRecognition"]</span>
+            </p>
+            </text>);
+        items.Add()
+            .Text("视频内容识别")
+            .Content(@<text>
+            <p style="padding:1em 2em">
+                连接环境：<span style="font-weight: bold">@ViewData["Environment_VideoRecognition"]</span>
+            </p>
+            </text>);
+    }) 
+    )
+</div>

@@ -1,0 +1,51 @@
+﻿@using CognitionTesterWeb.Models
+@model CognitionTesterWeb.Models.TextClassificationResultDetail
+@{
+    ViewData["Title"] = "记录详情 - 稿件自动归类";
+}
+
+<h2>记录详情 - 稿件自动归类</h2>
+
+<div class="row">
+    <h3>文章信息</h3>
+    <div class="col-md-7">
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            <h4>@Html.DisplayNameFor(m => m.Title)</h4>
+            @Html.DisplayTextFor(m => m.Title)
+        </p>
+        <p>
+            <h4>
+                @Html.DisplayNameFor(m => m.Content)
+            </h4>
+            @Html.DisplayTextFor(m => m.Content)
+        </p>
+        <p>
+            <h4>
+                @Html.DisplayNameFor(m => m.Ctime)
+            </h4>
+            @Html.DisplayTextFor(m => m.Ctime)
+        </p>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <div class="row">
+            <p>
+                <h4>厂商A</h4>
+                @Html.DisplayTextFor(m=>m.AResult)
+            </p>
+        </div>
+        <div class="row">
+            <p>
+                <h4>厂商B</h4>
+                @Html.DisplayTextFor(m => m.BResult)
+            </p>
+        </div>
+        <div class="row">
+            <p>
+                <h4>厂商C</h4>
+                @Html.DisplayTextFor(m => m.CResult)
+            </p>
+        </div>
+    </div>
+</div>
